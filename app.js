@@ -9,6 +9,7 @@ const mongoSanitizer = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser'); // to parse cookie from incoming request
+const compression = require('compression');
 
 //Routers
 const tourRouter = require('./routes/tourRoutes');
@@ -95,6 +96,8 @@ app.use(
     ],
   })
 );
+
+app.use(compression());
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

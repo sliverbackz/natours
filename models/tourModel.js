@@ -149,10 +149,10 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`QUery took ${Date.now() - this.start} milliseconds`);
-  next();
-});
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`QUery took ${Date.now() - this.start} milliseconds`);
+//   next();
+// });
 
 // tourSchema.pre('save', function (next) {
 //   console.log('Will save document...');

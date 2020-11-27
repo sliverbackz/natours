@@ -4,7 +4,7 @@ import { displayMap } from './mapbox';
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 
-console.log('hello from index');
+// console.log('hello from index');
 
 // dom elements
 const mapBox = document.getElementById('map');
@@ -20,7 +20,7 @@ if (mapBox) {
 }
 
 if (loginForm) {
-  console.log('hello from loginForm');
+  // console.log('hello from loginForm');
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
@@ -36,13 +36,13 @@ if (userDataForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+    // console.log(form);
     updateSettings(form, 'data');
   });
 }
 
 if (userPasswordForm) {
-  console.log('user data from');
+  // console.log('user data from');
   userPasswordForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     document.querySelector('.btn--save-password').textContent = 'Updating...';
