@@ -36,3 +36,11 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
+
+//heroku shutdown app coz sigterm condition
+process.on('SIGTERM', () => {
+  console.log(' 😿 SIGTERM RECEVIED! Shutting Down gracefully');
+  server.close(() => {
+    console.log('😇 Process terminated!');
+  });
+});
