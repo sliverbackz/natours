@@ -10,6 +10,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser'); // to parse cookie from incoming request
 const compression = require('compression');
+const cors = require('cors');
 
 //Routers
 const tourRouter = require('./routes/tourRoutes');
@@ -30,6 +31,19 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 //1) GLOBAL MIDDLEWARES
+//Implements cors
+app.use(cors());
+//Access-Control-Allow-Origin *
+//api.natours.com, front-end natours.com, front-end
+// app.use(
+//   cors({
+//     origin: 'https://www.natours.com',
+//   })
+// );
+
+//
+app.options('*', cors());
+// app.options('api/v1/tours/:id', cors());
 
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
